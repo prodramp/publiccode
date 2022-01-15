@@ -4,13 +4,14 @@
 1. Docker DeskTop
 ```
 $  docker -v
-Docker version 19.03.8, build afacb8b
+Docker version 20.10.8, build 3967b7d
+
 $ docker-compose -v
-docker-compose version 1.25.5, build 8a1c60f6
+docker-compose version 1.29.2, build 5becea4c
+```
 
 2. pgadmin4 
 Install from here > https://www.pgadmin.org/download/
-```
 
 ## Getting started ##
 1. Create a new folder and create a new file name > docker-compose.yml
