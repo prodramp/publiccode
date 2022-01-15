@@ -14,6 +14,8 @@ Install from here > https://www.pgadmin.org/download/
 
 ## Getting started ##
 1. Create a new folder and create a new file name > docker-compose.yml
+
+### Postgresql 12.x ###
 ```
 version: '3.1' # specify docker-compose version
 services:
@@ -29,6 +31,25 @@ services:
     volumes:
       - ./data:/var/lib/postgresql%
 ```
+
+### Postgresql 14.x ###
+```
+version: '3.9' # specify docker-compose version
+services:
+  dockerpgdb:
+    image: postgres:14-alpine
+    ports:
+      - "5432:5432"
+    restart: always
+    environment:
+      POSTGRES_PASSWORD: Password
+      POSTGRES_DB: dockerpgdb
+      POSTGRES_USER: abcUser
+    volumes:
+      - ./data:/var/lib/postgresql%
+```
+
+
 2. Run the following in the same folder where  
 - $ docker-compose up
 - Note: You will see some activity on command prompt and then in the Docker desktop application, your container will be running
