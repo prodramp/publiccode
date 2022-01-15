@@ -1,0 +1,14 @@
+version: '3.9' # specify docker-compose version
+services:
+  pg14db:
+    image: postgres:14-alpine
+    ports:
+      - "5439:5432"
+    restart: always
+    environment:
+      POSTGRES_PASSWORD: Password
+      POSTGRES_DB: pg14db
+      POSTGRES_USER: abcUser
+    volumes:
+      - ./data:/var/lib/postgresql%
+
