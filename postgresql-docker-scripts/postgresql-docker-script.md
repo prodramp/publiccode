@@ -40,7 +40,7 @@ services:
   pg14db:
     image: postgres:14-alpine
     ports:
-      - "5432:5432"
+      - "5439:5432"
     restart: always
     environment:
       POSTGRES_PASSWORD: Password
@@ -49,6 +49,10 @@ services:
     volumes:
       - ./data:/var/lib/postgresql%
 ```
+
+Note:
+- Above we decided to use host port 5439 to bind with the container port 5432 based on asumption that host port 5432 is already used to run another version of postgres DB. So if we use 5432 port at host, it will generate port conflict error.
+- So if you are not running any postgres DB at the host and port 5432 is open you can use port 5432:5432 instead of 5439:5432.
 
 
 2. Run the following in the same folder where  
