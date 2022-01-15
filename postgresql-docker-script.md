@@ -36,14 +36,14 @@ services:
 ```
 version: '3.9' # specify docker-compose version
 services:
-  dockerpgdb:
+  pg14db:
     image: postgres:14-alpine
     ports:
       - "5432:5432"
     restart: always
     environment:
       POSTGRES_PASSWORD: Password
-      POSTGRES_DB: dockerpgdb
+      POSTGRES_DB: pg14db
       POSTGRES_USER: abcUser
     volumes:
       - ./data:/var/lib/postgresql%
@@ -67,5 +67,23 @@ password: Password
 
 4. Connect and test
 
+Launch the docker container command line for postgresql
+```
+/# psql -V
+psql (PostgreSQL) 14.1
 
+
+/# psql -d pg14db -U abcUser
+psql (14.1)
+Type "help" for help.
+
+pg14db=# 
+
+pg14db=# select version();
+                                                   version
+--------------------------------------------------------------------------------------------------------------
+ PostgreSQL 14.1 on x86_64-pc-linux-musl, compiled by gcc (Alpine 10.3.1_git20211027) 10.3.1 20211027, 64-bit
+(1 row)
+
+```
 
