@@ -1,0 +1,6 @@
+node-modules/
+.DS_Store
+.env
+.idea/
+.idea/vcs.xml
+
