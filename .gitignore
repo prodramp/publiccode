@@ -3,4 +3,5 @@ node-modules/
 .env
 .idea/
 .idea/vcs.xml
+.ipynb_checkpoints/
 
