@@ -120,7 +120,15 @@ const PageFunctionName = () => {
       if (info.length <= 0){setInfo(getResultObj)}
     }))
 
-
+  var postDataIn = {
+      RequestType: 'api',
+      RequestJson: {'param':'Core UI with Python backend'}
+    }    
+    PostRestObject.PostRestRequest(`/v1/info`, postDataIn, postResultObj => {
+      console.log(postResultObj);
+      if (postData.length <= 0){setPostData(postResultObj)}
+    });
+    
   return (
     <>
       <WidgetsDropdown />
@@ -142,6 +150,9 @@ const PageFunctionName = () => {
               <div className="small text-medium-emphasis">
                 {info.resultStatus === 'SUCCESS' 
                 ?<h2> {info.message} </h2>: 'Error in reading status'}
+              </div>
+              <div className="small text-medium-emphasis">
+                {JSON.stringify(postData)}
               </div>
             </CCol>
           </CRow>
