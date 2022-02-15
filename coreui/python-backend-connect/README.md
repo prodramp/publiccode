@@ -1,5 +1,9 @@
 ## Connect CoreUI with Python backend ## 
 
+First please clode the CoreUI React template code. 
+
+- $ git clone https://github.com/coreui/coreui-free-react-admin-template.git
+
 1. Add setupProxy.js in code 
 ```
 const proxy = require('http-proxy-middleware');
