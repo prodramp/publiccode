@@ -1,9 +1,13 @@
 ## Connect CoreUI with Python backend ## 
 
 1. Add setupProxy.js in code 
-2. Add ServerConnectGet.js into src/api folder
-3. Add ServerConnectPost.js into src/api folder
-4. Implement the code 
+2. Please update your python server {ip|hostname}:port values in your .env file
+```
+API_SERVER=http://localhost:8000
+```
+4. Add ServerConnectGet.js into src/api folder
+5. Add ServerConnectPost.js into src/api folder
+6. Implement the code 
 
 - Edit your sourcefile.js
 ```
