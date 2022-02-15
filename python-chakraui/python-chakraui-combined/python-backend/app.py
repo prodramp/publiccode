@@ -32,5 +32,5 @@ def index_page():
 api.add_resource(ApiHandlerFunction, '/v1/info')
 api.add_resource(RootApi, '/v1/hello')
 if __name__ == '__main__':
-    app.run(host="0.0.0.0", port=8008)
+    app.run(host="0.0.0.0", port=8000)
 
