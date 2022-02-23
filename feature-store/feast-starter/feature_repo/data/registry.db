@@ -1,0 +1,21 @@
+
+Q
+1
+	driver_id	driver id"	driver_idJfeature_repo
+¶îÚˆø–½¶îÚˆø–½
+E
+%
+__dummy"
+__dummy_idJfeature_repo
+¶îÚø—œ½¶îÚø—œ½1"$e9928c79-a31a-41c0-bf07-64a6449149aa*¯÷Ú˜Ñ„Í2ó
+¨
+driver_hourly_statsfeature_repo	driver_id"
+	conv_rate"
+acc_rate"
+avg_daily_trips2€£:½event_timestamp*createdZki/Users/avkash/work/prodramp/publiccode/feature-store/feast-starter/feature_repo/data/driver_stats.parquetŠ1feast.infra.offline_stores.file_source.FileSource@F
+¶îÚøŸ½¯÷Ú°ùôÌ
+·ÓÕ¨÷“Š£öÚ
+£öÚ¡÷ÚR¼
+¹
+,feast.infra.online_stores.sqlite.SqliteTable"ˆ
+d/Users/avkash/work/prodramp/publiccode/feature-store/feast-starter/feature_repo/data/online_store.db feature_repo_driver_hourly_stats
