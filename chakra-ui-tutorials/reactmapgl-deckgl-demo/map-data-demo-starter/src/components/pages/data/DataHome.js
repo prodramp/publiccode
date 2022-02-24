@@ -1,5 +1,5 @@
 import React from 'react';
-import DataHomeEx from '../../partials/data/DataHomeEx';
+import DataHomeEx from '../../containers/data/DataHomeEx';
 import {
     Box,
   } from '@chakra-ui/react';

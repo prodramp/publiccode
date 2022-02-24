@@ -1,16 +1,16 @@
-import { compact } from "lodash/compact";
-import map from 'lodash/map';
-import isUndefined from 'lodash/isUndefined';
 import React from "react";
 import { Switch, Route, Redirect } from "react-router-dom";
-import SuspenseLoader from '../partials/SuspenseLoader';
+import compact from "lodash/compact";
+import map from 'lodash/map';
+import isUndefined from 'lodash/isUndefined';
+import SuspenseLoader from '../../utils/SuspenseLoader';
 
 const IndexHome = React.lazy( () => import('../pages/IndexHome'));
 const DataHome = React.lazy( () => import('../pages/data/DataHome'));
 
 export const routes = [
-    {path: '/home', exact:true, name: 'Data', component: IndexHome},
-    {path: '/datahome', exact:true, name: 'Data', component: DataHome},
+    {path: '/index', exact: true, name: 'Home', component: IndexHome},
+    {path: '/data', exact: true, name: 'Home', component: DataHome}
 ]
 
 export default () => {
@@ -32,8 +32,8 @@ export default () => {
                   ) : null;
                   })
               )}
-            <Route render={() => <Redirect to='/home' />} />
-            </Switch>     
+            <Route render={() => <Redirect to='/index' />} />
+            </Switch> 
         </React.Fragment>
     )
 }

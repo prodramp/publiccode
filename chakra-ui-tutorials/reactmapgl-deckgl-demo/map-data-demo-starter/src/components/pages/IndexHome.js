@@ -1,5 +1,5 @@
 import React from 'react';
-import IndexHomeEx from '../partials/IndexHomeEx';
+import IndexHomeEx from '../containers/IndexHomeEx';
 import {
     Box,
   } from '@chakra-ui/react';
