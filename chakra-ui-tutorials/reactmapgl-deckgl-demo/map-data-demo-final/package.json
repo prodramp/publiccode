@@ -16,7 +16,13 @@
     "react-router": "^5.2.1",
     "react-router-dom": "^5.2.1",
     "react-scripts": "5.0.0",
-    "web-vitals": "^0.2.4"
+    "web-vitals": "^0.2.4",
+    "mapbox-gl": "^2.7.0",
+    "react-map-gl": "5.1.5",
+    "deck.gl": "8.6.9",
+    "@deck.gl/react": "^8.6.9",
+    "@deck.gl/aggregation-layers": "^8.6.9",
+    "@deck.gl/geo-layers": "^8.6.9"
   },
   "scripts": {
     "start": "react-scripts start",
