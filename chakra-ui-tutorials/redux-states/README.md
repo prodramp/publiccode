@@ -251,7 +251,7 @@ import {
 
 const mapStateToProps = state => ({
     ...state,
-    data: state.homeReducer.data
+    data: state.homeReducers.data
 });
 
 const mapDispatchToProps = dispatch => ({
