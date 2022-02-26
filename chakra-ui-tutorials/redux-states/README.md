@@ -45,8 +45,82 @@ export const store = createStore(
 
 ```
 
+3. Add middleware.js at same path where store.js
 
-3. Add agents.js at the src-root (src/agents.js)
+```
+import agent from './agent';
+import {
+  ASYNC_START,
+  ASYNC_END,
+  LOGIN,
+  LOGOUT,
+  REGISTER
+} from './state/actions/index';
+
+const promiseMiddleware = store => next => action => {
+  if (isPromise(action.payload)) {
+    store.dispatch({ type: ASYNC_START, subtype: action.type });
+
+    const currentView = store.getState().viewChangeCounter;
+    const skipTracking = action.skipTracking;
+
+    action.payload.then(
+      res => {
+        const currentState = store.getState()
+        if (!skipTracking && currentState.viewChangeCounter !== currentView) {
+          return
+        }
+        console.log('RESULT', res);
+        action.payload = res;
+        store.dispatch({ type: ASYNC_END, promise: action.payload });
+        store.dispatch(action);
+      },
+      error => {
+        const currentState = store.getState()
+        if (!skipTracking && currentState.viewChangeCounter !== currentView) {
+          return
+        }
+        console.log('ERROR', error);
+        action.error = true;
+        action.payload = error.response.body;
+        if (!action.skipTracking) {
+          store.dispatch({ type: ASYNC_END, promise: action.payload });
+        }
+        store.dispatch(action);
+      }
+    );
+
+    return;
+  }
+
+  next(action);
+};
+
+const localStorageMiddleware = store => next => action => {
+  if (action.type === REGISTER || action.type === LOGIN) {
+    if (!action.error) {
+      window.localStorage.setItem('jwt', action.payload.user.token);
+      agent.setToken(action.payload.user.token);
+    }
+  } else if (action.type === LOGOUT) {
+    window.localStorage.setItem('jwt', '');
+    agent.setToken(null);
+  }
+
+  next(action);
+};
+
+function isPromise(v) {
+  return v && typeof v.then === 'function';
+}
+
+
+export { promiseMiddleware, localStorageMiddleware }
+
+```
+
+
+4. Add agents.js at the src-root (src/agents.js)
 
 You will be adding all API function here for GET/PUT/POST etc.
 Below we have done the following:
@@ -82,7 +156,7 @@ export default {
 
 ```
 
-4. Create a folder name state inside src as src/state and add the following files:
+5. Create a folder name state inside src as src/state and add the following files:
 
 All page specific const will be defined in this index.js
 /src/state/actions/
@@ -146,7 +220,7 @@ export default combineReducers({
 });
 ```
 
-5. Create a folder name utils inside src as src/utils and add the following files:
+6. Create a folder name utils inside src as src/utils and add the following files:
 
 ```
 src/utils/helpers.js
@@ -163,7 +237,7 @@ export const createActions = (type, payload) => {
 };
 ```
 
-6. In the container part of the code add the following 
+7. In the container part of the code add the following 
 
 ```
 import IndexHomeEx from '../partials/IndexHomeEx';
@@ -190,7 +264,7 @@ const mapDispatchToProps = dispatch => ({
 export default connect(mapStateToProps, mapDispatchToProps)(IndexHomeEx);
 ```
 
-7. In the partial folder of page implementations, first add the connection to  agent because this will help the call the backend API code.
+8. In the partial folder of page implementations, first add the connection to  agent because this will help the call the backend API code.
 
 - Calling the function from the agent.js will make the API call and response will be stored into the this.props.
 
@@ -209,7 +283,7 @@ export default connect(mapStateToProps, mapDispatchToProps)(IndexHomeEx);
   {JSON.stringify(this.props)}
 ```
 
-8. Update the App.js with reference to store
+9. Update the App.js with reference to store
 
 ```
    <ChakraProvider theme={theme}>
