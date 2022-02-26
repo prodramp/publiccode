@@ -17,6 +17,39 @@ Note: We have the Chakra UI project with React & React-dom V 17.0.2 with react-r
 3. Add reportWebVitals.js at the src-root (src/reportWebVitals.js).
 
 4. Add agents.js at the src-root (src/agents.js)
+You will be adding all API function here for GET/PUT/POST etc.
+Below we have done the following:
+ - Add the url path of API (this can be dynamic too)
+ - Implement the requests() for API
+ - Create function (i.e. Home) to call the API 
+ - For every function, make sure to export it. (i.e. export default {Home }
+ 
+```
+const API_ROOT = 'https://jsonplaceholder.typicode.com';
+
+const requests = {
+    del: url =>
+        fetch(`${API_ROOT}${url}`, { _method: 'DEL' }).then((res) => res.json()),
+    get: url =>
+        fetch(`${API_ROOT}${url}`, { _method: 'GET' }).then((res) => res.json()),
+    put: (url, body) =>
+        fetch(`${API_ROOT}${url}`, { _method: 'PUT', body: body }).then((res) => res.json()),
+    post: (url, body) =>
+        fetch(`${API_ROOT}${url}`, { _method: 'POST', body: body }).then((res) => res.json())
+};
+
+const Home = {
+    todos: () =>
+        requests.get(`/todos`)
+};
+
+export default {
+    Home,
+    Auth,
+    setToken: _token => { token = _token; }
+};
+
+```
 
 5. Create a folder name state inside src as src/state and add the following files:
 
@@ -99,4 +132,49 @@ export const createActions = (type, payload) => {
 };
 ```
 
-7. 
+7. In the container part of the code add the following 
+
+```
+import IndexHomeEx from '../partials/IndexHomeEx';
+
+
+import { connect } from 'react-redux';
+import {
+    HOME_PAGE_LOADED,
+    HOME_PAGE_UNLOADED,
+} from '../../state/actions/index';
+
+const mapStateToProps = state => ({
+    ...state,
+    data: state.homeReducer.data
+});
+
+const mapDispatchToProps = dispatch => ({
+    onLoad: payload =>
+        dispatch({ type: HOME_PAGE_LOADED, payload }),
+    onUnload: () =>
+        dispatch({ type: HOME_PAGE_UNLOADED })
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(IndexHomeEx);
+```
+
+8. In the partial folder of page implementations, first add the connection to  agent because this will help the call the backend API code.
+
+- Calling the function from the agent.js will make the API call and response will be stored into the this.props.
+
+```
+ import agent from '../../agent';
+
+  componentWillMount() {
+    this.props.onLoad(agent.Home.todos());
+    console.log(this.props);
+  }
+
+  componentWillUnmount() {
+    this.props.onUnload();
+  }
+
+  {JSON.stringify(this.props)}
+```
+
