@@ -13,9 +13,41 @@ Note: We have the Chakra UI project with React & React-dom V 17.0.2 with react-r
 
 2. Adding store.js at the src-root (src/store.js).
 
-3. Add reportWebVitals.js at the src-root (src/reportWebVitals.js).
+In this code we are going to create the redux store which will connect with all reducer states (./state/reducers)
 
-4. Add agents.js at the src-root (src/agents.js)
+```
+import { applyMiddleware, createStore } from 'redux';
+import { createLogger } from 'redux-logger'
+import { composeWithDevTools } from 'redux-devtools-extension/developmentOnly';
+import { promiseMiddleware, localStorageMiddleware } from './middleware';
+import reducer from './state/reducers';
+
+import { routerMiddleware } from 'react-router-redux'
+import createHistory from 'history/createBrowserHistory';
+
+export const history = createHistory();
+
+// Build the middleware for intercepting and dispatching navigation actions
+const myRouterMiddleware = routerMiddleware(history);
+
+const getMiddleware = () => {
+    if (process.env.NODE_ENV === 'production') {
+        return applyMiddleware(myRouterMiddleware, promiseMiddleware, localStorageMiddleware);
+    } else {
+        // Enable additional logging in non-production environments.
+        return applyMiddleware(myRouterMiddleware, promiseMiddleware, localStorageMiddleware)
+        // return applyMiddleware(myRouterMiddleware, promiseMiddleware, localStorageMiddleware, createLogger())
+    }
+};
+
+export const store = createStore(
+    reducer, composeWithDevTools(getMiddleware()));
+
+```
+
+
+3. Add agents.js at the src-root (src/agents.js)
+
 You will be adding all API function here for GET/PUT/POST etc.
 Below we have done the following:
  - Add the url path of API (this can be dynamic too)
@@ -50,7 +82,7 @@ export default {
 
 ```
 
-5. Create a folder name state inside src as src/state and add the following files:
+4. Create a folder name state inside src as src/state and add the following files:
 
 All page specific const will be defined in this index.js
 /src/state/actions/
@@ -114,7 +146,7 @@ export default combineReducers({
 });
 ```
 
-6. Create a folder name utils inside src as src/utils and add the following files:
+5. Create a folder name utils inside src as src/utils and add the following files:
 
 ```
 src/utils/helpers.js
@@ -131,7 +163,7 @@ export const createActions = (type, payload) => {
 };
 ```
 
-7. In the container part of the code add the following 
+6. In the container part of the code add the following 
 
 ```
 import IndexHomeEx from '../partials/IndexHomeEx';
@@ -158,7 +190,7 @@ const mapDispatchToProps = dispatch => ({
 export default connect(mapStateToProps, mapDispatchToProps)(IndexHomeEx);
 ```
 
-8. In the partial folder of page implementations, first add the connection to  agent because this will help the call the backend API code.
+7. In the partial folder of page implementations, first add the connection to  agent because this will help the call the backend API code.
 
 - Calling the function from the agent.js will make the API call and response will be stored into the this.props.
 
