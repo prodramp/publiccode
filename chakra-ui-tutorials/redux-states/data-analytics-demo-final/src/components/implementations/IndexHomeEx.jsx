@@ -8,8 +8,17 @@ import {
 import { ColorModeSwitcher } from '../../utils/ColorModeSwitcher';
 import { Logo } from '../../utils/Logo';
 import { withRouter } from 'react-router';
+import agent from '../../agents';
 
 class IndexHomeEx extends React.Component {
+
+    componentWillMount(){
+        this.props.onLoad(agent.Home.todosByUser(10));
+    }
+
+    componentWillUnmount(){
+        this.props.onUnload();
+    }
 
     render() {
         return(
@@ -18,7 +27,10 @@ class IndexHomeEx extends React.Component {
                     <Grid minH="100vh" p={3}>
                     <ColorModeSwitcher justifySelf="flex-end" />
                     <VStack spacing={8} border="1px" borderColor={"gray"} rounded="md" bg="gray.100">
-                        <Text color={"gray.500"} fontSize={"5xl"}>Hi, I am here</Text>
+                        <Text>
+                            {JSON.stringify(this.props)}
+                        </Text>
+                        <Text color={"gray.500"} fontSize={"5xl"}>Hi, I am here, today</Text>
                         <Logo h="40vmin" pointerEvents="none" />
                         <Text>
                         Edit <Code fontSize="xl">src/App.js</Code> and save to reload.

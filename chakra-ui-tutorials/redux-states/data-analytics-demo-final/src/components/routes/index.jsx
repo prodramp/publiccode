@@ -10,7 +10,7 @@ const DataHome = React.lazy( () => import('../pages/data/DataHome'));
 
 export const routes = [
     {path: '/index', exact: true, name: 'Home', component: IndexHome},
-    {path: '/data', exact: true, name: 'Home', component: DataHome}
+    {path: '/dataHome', exact: true, name: 'Home', component: DataHome}
 ]
 
 export default () => {
