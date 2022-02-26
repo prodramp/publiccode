@@ -209,3 +209,16 @@ export default connect(mapStateToProps, mapDispatchToProps)(IndexHomeEx);
   {JSON.stringify(this.props)}
 ```
 
+8. Update the App.js with reference to store
+
+```
+   <ChakraProvider theme={theme}>
+        <BrowserRouter>
+            <Provider store={store}>
+                <AppRouter />
+            </Provider>
+        </BrowserRouter>
+    </ChakraProvider>
+```
+
+
