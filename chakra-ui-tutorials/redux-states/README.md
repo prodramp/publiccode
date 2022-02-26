@@ -8,7 +8,6 @@
     "redux-thunk": "^2.4.1",
     "react-router-redux": "^4.0.8",
     "redux-devtools-extension": "^2.13.9",
-    "web-vitals": "^0.2.4"
 ```
 Note: We have the Chakra UI project with React & React-dom V 17.0.2 with react-router & react-router-dom V 5.1.2.
 
