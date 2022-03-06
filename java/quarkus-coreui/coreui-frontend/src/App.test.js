@@ -1,10 +1,14 @@
-import React from 'react';
-import { screen } from '@testing-library/react';
-import { render } from './test-utils';
-import App from './App';
+import React from 'react'
+import { shallow } from 'enzyme/build'
+import App from './App'
+import Dashboard from './views/dashboard/Dashboard.js'
 
-test('renders learn react link', () => {
-  render(<App />);
-  const linkElement = screen.getByText(/learn chakra/i);
-  expect(linkElement).toBeInTheDocument();
-});
+it('mounts App without crashing', () => {
+  const wrapper = shallow(<App />)
+  wrapper.unmount()
+})
+
+it('mounts Dashboard without crashing', () => {
+  const wrapper = shallow(<Dashboard />)
+  wrapper.unmount()
+})
