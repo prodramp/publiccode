@@ -79,4 +79,3 @@ class DataHomeEx extends React.Component {
     }
 }
 
-export default withRouter(DataHomeEx);
