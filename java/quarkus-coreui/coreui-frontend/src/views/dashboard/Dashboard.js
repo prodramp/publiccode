@@ -62,26 +62,27 @@ const Dashboard = () => {
   }
 
   const [hello, setHello] = useState([])
-  const [info, setInfo] = useState([])
-  const [postData, setPostData] = useState([])
+  const [version, setVersion] = useState([])
+  const [postHello, setPostHello] = useState([])
   
 
   GetRestObject.GetRestRequest(`/v1/hello`, (getResultObj => {
-    console.log(getResultObj)
+    // console.log(getResultObj)
     if (hello.length <= 0){setHello(getResultObj)}
   }))
-  GetRestObject.GetRestRequest(`/v1/info`, (getResultObj => {
-      console.log(getResultObj)
-      if (info.length <= 0){setInfo(getResultObj)}
+  GetRestObject.GetRestRequest(`/v1/version`, (getResultObj => {
+      // console.log(getResultObj)
+      if (info.length <= 0){setVersion(getResultObj)}
     }))
 
-    var postDataIn = {
-      RequestType: 'api',
-      RequestJson: {'param':'Core UI with Python backend'}
-    }    
-    PostRestObject.PostRestRequest(`/v1/info`, postDataIn, postResultObj => {
-      console.log(postResultObj);
-      if (postData.length <= 0){setPostData(postResultObj)}
+    // var postDataIn = {
+    //   RequestType: 'api',
+    //   RequestJson: {'param':'Core UI with Python backend'}
+    // }    
+    var postData = {'postParam': "Core UI Frontend"}
+    PostRestObject.PostRestRequest(`/v1/version`, postDataIn, postResultObj => {
+      // console.log(postResultObj);
+      if (postHello.length <= 0){setPostHello(postResultObj)}
     });
 
   const progressExample = [
@@ -215,18 +216,14 @@ const Dashboard = () => {
               <h4 id="traffic" className="card-title mb-0">
                 Response from the Python Backend
               </h4>
-              {/* <div className="small text-medium-emphasis">
+              <div className="small text-medium-emphasis">
                 {JSON.stringify(hello)}
               </div>
               <div className="small text-medium-emphasis">
-                {JSON.stringify(info)}
-              </div> */}
-              <div className="small text-medium-emphasis">
-                {info.resultStatus === 'SUCCESS'
-                ?<h5>{info.message}</h5> : <h5>Error from backend</h5>}
+                {version.message}
               </div>
               <div className="small text-medium-emphasis">
-                {JSON.stringify(postData)}
+                {JSON.stringify(postHello)}
               </div>
             </CCol>
           </CRow>

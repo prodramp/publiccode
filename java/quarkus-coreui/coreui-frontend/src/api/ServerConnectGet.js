@@ -12,7 +12,7 @@ function GetRestRequest(apiUrl, getResultObj) {
      .then(checkStatus)
      .then(parseJSON)
      .then(getResultObj);
-} 
+}    
 
 function checkStatus(response) {
   if (response.status >= 200 && response.status < 300) {
