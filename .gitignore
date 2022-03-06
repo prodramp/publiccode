@@ -5,4 +5,5 @@ node_modules/
 .idea/vcs.xml
 .ipynb_checkpoints/
 package-lock.json
+*.jar
 
