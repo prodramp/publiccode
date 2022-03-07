@@ -6,4 +6,5 @@ node_modules/
 .ipynb_checkpoints/
 package-lock.json
 *.jar
+__pycache__
 wave/
