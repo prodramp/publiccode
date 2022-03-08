@@ -8,3 +8,4 @@ package-lock.json
 *.jar
 __pycache__
 wave/
+great_expectations/
