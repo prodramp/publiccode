@@ -3,6 +3,27 @@
   "expectation_suite_name": "default",
   "expectations": [
     {
+      "expectation_type": "expect_column_to_exist",
+      "kwargs": {
+        "column": "Fare"
+      },
+      "meta": {}
+    },
+    {
+      "expectation_type": "expect_column_to_exist",
+      "kwargs": {
+        "column": "Survived"
+      },
+      "meta": {}
+    },
+    {
+      "expectation_type": "expect_column_to_exist",
+      "kwargs": {
+        "column": "Age"
+      },
+      "meta": {}
+    },
+    {
       "expectation_type": "expect_column_values_to_be_in_set",
       "kwargs": {
         "column": "Sex",
@@ -10,16 +31,6 @@
           "male",
           "female"
         ]
-      },
-      "meta": {}
-    },
-    {
-      "expectation_type": "expect_column_values_to_be_between",
-      "kwargs": {
-        "column": "Fare",
-        "max_value": 1000,
-        "min_value": 1,
-        "mostly": 0.8
       },
       "meta": {}
     }
