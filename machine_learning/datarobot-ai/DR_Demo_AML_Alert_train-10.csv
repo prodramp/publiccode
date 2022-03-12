@@ -1,0 +1,11 @@
+ALERT,SAR,kycRiskScore,income,tenureMonths,creditScore,state,nbrPurchases90d,avgTxnSize90d,totalSpend90d,csrNotes,nbrDistinctMerch90d,nbrMerchCredits90d,nbrMerchCreditsRndDollarAmt90d,totalMerchCred90d,nbrMerchCreditsWoOffsettingPurch,nbrPayments90d,totalPaymentAmt90d,overpaymentAmt90d,overpaymentInd90d,nbrCustReqRefunds90d,indCustReqRefund90d,totalRefundsToCust90d,nbrPaymentsCashLike90d,maxRevolveLine,indOwnsHome,nbrInquiries1y,nbrCollections3y,nbrWebLogins90d,nbrPointRed90d,PEP
+1,0,3,110300,5,757,PA,10,153.8,1538, ,7,2,0,308.98,0,5,76.9,0,0,1,1,45.82,5,6000,0,3,0,6,1,0
+1,0,2,107800,6,715,NY,22,1.59,34.98,card replace billing address billing address,11,2,0,3.28,1,4,60,25.02,1,2,1,67.4,0,10000,1,3,0,87,0,0
+1,0,1,74000,13,751,MA,7,57.64,403.48,billing address   customer call,4,0,0,0,0,4,796.63,393.15,1,2,1,450.69,0,10000,0,3,0,6,0,0
+1,0,0,57700,1,659,NJ,14,29.52,413.28, ,7,2,0,59.14,1,3,413.28,0,0,1,1,71.43,0,8000,1,5,0,7,2,0
+1,0,1,59800,3,709,PA,54,115.77,6251.58,change request statement late payment bitcoin,16,7,2,785.85,2,3,8928.41,2676.83,1,2,1,2731.39,3,7000,1,1,0,8,1,0
+1,0,1,43500,11,717,CT,18,36.11,649.98, ,11,1,1,29,0,3,649.98,0,0,1,1,26.66,0,9000,0,2,1,3,2,0
+1,0,0,70200,9,720,ME,17,55.38,941.46,late payment password change customer call,7,2,0,110.92,1,5,941.46,0,0,1,1,19.89,2,13000,1,4,0,6,1,0
+1,1,1,5900,1,772,MA,0,36.88,0,transfer   statement overseas atm,0,0,0,0,0,3,2758.76,2758.76,1,1,1,2758.76,3,11000,0,4,0,3,0,0
+1,0,1,11400,43,727,NY,2,159.05,318.1,billing address statement transfer bitcoin,1,0,0,0,0,3,3003.87,2685.77,1,2,1,2747.92,3,15000,1,2,0,4,2,0
+1,0,1,36700,12,735,PA,86,37.25,3203.5,transfer   statement,41,13,2,486.21,6,3,3203.5,0,0,1,1,38.12,3,7000,0,8,0,10,0,0
