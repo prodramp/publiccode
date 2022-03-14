@@ -1,5 +1,4 @@
 
-
 ## 1. Add .env to the root (to connect with backend if applicable)
 
 ```
