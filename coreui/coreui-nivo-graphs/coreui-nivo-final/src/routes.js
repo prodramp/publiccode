@@ -1,6 +1,12 @@
 import React from 'react'
 
 const Dashboard = React.lazy(() => import('./views/dashboard/Dashboard'))
+const NivoBar = React.lazy(() => import('./views/nivo/NivoBar'))
+const NivoPie = React.lazy(() => import('./views/nivo/NivoPie'))
+const NivoBump = React.lazy(() => import('./views/nivo/NivoBump'))
+const NivoFunnel = React.lazy(() => import('./views/nivo/NivoFunnel'))
+const NivoBullet = React.lazy(() => import('./views/nivo/NivoBullet'))
+
 const Colors = React.lazy(() => import('./views/theme/colors/Colors'))
 const Typography = React.lazy(() => import('./views/theme/typography/Typography'))
 
@@ -53,6 +59,11 @@ const Widgets = React.lazy(() => import('./views/widgets/Widgets'))
 const routes = [
   { path: '/', exact: true, name: 'Home' },
   { path: '/dashboard', name: 'Dashboard', element: Dashboard },
+  { path: '/nivobar', name: 'Nivo Bar', element: NivoBar },
+  { path: '/nivopie', name: 'Nivo Pie', element: NivoPie },
+  { path: '/nivobump', name: 'Nivo Bump', element: NivoBump },
+  { path: '/nivofunnel', name: 'Nivo Funnel', element: NivoFunnel },
+  { path: '/nivobullet', name: 'Nivo Bullet', element: NivoBullet },
   { path: '/theme', name: 'Theme', element: Colors, exact: true },
   { path: '/theme/colors', name: 'Colors', element: Colors },
   { path: '/theme/typography', name: 'Typography', element: Typography },

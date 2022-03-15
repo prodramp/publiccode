@@ -1,6 +1,7 @@
 import React from 'react'
 import CIcon from '@coreui/icons-react'
 import {
+  cilBarChart,
   cilBell,
   cilCalculator,
   cilChartPie,
@@ -24,6 +25,40 @@ const _nav = [
       color: 'info',
       text: 'NEW',
     },
+  },
+  {
+    component: CNavTitle,
+    name: 'Nivo Graphs',
+  },
+  {
+    component: CNavItem,
+    name: 'Bar',
+    to: '/nivobar',
+    icon: <CIcon icon={cilBarChart} customClassName="nav-icon" />,
+  },
+  {
+    component: CNavItem,
+    name: 'Pie',
+    to: '/nivopie',
+    icon: <CIcon icon={cilChartPie} customClassName="nav-icon" />,
+  },
+  {
+    component: CNavItem,
+    name: 'Bump',
+    to: '/nivobump',
+    icon: <CIcon icon={cilChartPie} customClassName="nav-icon" />,
+  },
+  {
+    component: CNavItem,
+    name: 'Funnel',
+    to: '/nivofunnel',
+    icon: <CIcon icon={cilChartPie} customClassName="nav-icon" />,
+  },
+  {
+    component: CNavItem,
+    name: 'Bullet',
+    to: '/nivobullet',
+    icon: <CIcon icon={cilChartPie} customClassName="nav-icon" />,
   },
   {
     component: CNavTitle,
