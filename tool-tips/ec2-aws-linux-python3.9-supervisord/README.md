@@ -167,10 +167,10 @@ esac
 :
 ```
 
-2. 
+2. Make sure that the newly created file has execute permissions by setting below:
 $ sudo chmod +x /etc/init.d/supervisord
 
-3. 
+3. Now add supervisord service to chkconfig list of services
 $ sudo chkconfig --add supervisord
 
 4. Now make sure that chkconfig has supervisord setting on and by default it is started 
