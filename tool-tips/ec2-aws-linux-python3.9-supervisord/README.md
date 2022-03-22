@@ -7,9 +7,10 @@
 ## Setting Supervisord as service ##
 
 1.  created a file name supervisord in the location below:
-
+```
 $ sudo vim /etc/init.d/supervisord
-
+```
+Please add the following code to above file. 
 ```
 #! /bin/sh
 ### BEGIN INIT INFO
@@ -168,13 +169,19 @@ esac
 ```
 
 2. Make sure that the newly created file has execute permissions by setting below:
+```
 $ sudo chmod +x /etc/init.d/supervisord
+```
 
 3. Now add supervisord service to chkconfig list of services
+```
 $ sudo chkconfig --add supervisord
+```
 
 4. Now make sure that chkconfig has supervisord setting on and by default it is started 
+```
 $ sudo chkconfig supervisord on
 $ sudo service supervisord start
+```
 
 5. Now Reboot the machine and it will work. 
