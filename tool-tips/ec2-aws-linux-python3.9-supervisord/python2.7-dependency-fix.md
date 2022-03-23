@@ -8,8 +8,14 @@ $ amazon-linux-extras
 
 Error:
 ```
-Error info
+$ sudo vi /usr/bin/yum
+$ sudo vi /usr/libexec/urlgrabber-ext-down
+
+>>> change both of above file #! /usr/bin/python >>>>> #! /usr/bin/python2
+
+Note: python3 will not work
 ```
+
 Change -python to -python2.7
 
 ```
@@ -29,10 +35,12 @@ exec env PYTHONIOENCODING=UTF-8 ${PYTHON:-python2.7} -m amazon_linux_extras "$@"
 
 3. 
 
+```
     for name, default in (("awsproto", "http"), ("amazonlinux", "amazonlinux"), ("awsdomain", "amazonaws.com"), ("awsregion", "default"), ("releasever", "2"), ("basearch", "x86_64")):
+```
 
+```
 #!/usr/bin/python2.7
-
 
 $ sudo vi /usr/libexec/urlgrabber-ext-down
 #! /usr/bin/python2.7
@@ -71,4 +79,4 @@ if __name__ == '__main__':
         load_entry_point('supervisor==3.4.0', 'console_scripts', 'echo_supervisord_conf')()
     )
 
-![image](https://user-images.githubusercontent.com/95409161/159786257-a62c5271-b35b-42bf-bd19-19513e700c71.png)
+```
