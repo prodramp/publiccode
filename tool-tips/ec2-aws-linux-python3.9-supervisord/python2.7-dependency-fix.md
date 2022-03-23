@@ -60,6 +60,42 @@ exec env PYTHONIOENCODING=UTF-8 ${PYTHON:-python2.7} -m amazon_linux_extras "$@"
 
 
 Error:
+
+```
+$ amazon-linux-extras
+Traceback (most recent call last):
+  File "/usr/lib64/python2.7/runpy.py", line 174, in _run_module_as_main
+    "__main__", fname, loader, pkg_name)
+  File "/usr/lib64/python2.7/runpy.py", line 72, in _run_code
+    exec code in run_globals
+  File "/usr/lib/python2.7/site-packages/amazon_linux_extras/__main__.py", line 35, in <module>
+    sys.exit(cli_main([arg for arg in argv[1:] if arg != "-v"]))
+  File "/usr/lib/python2.7/site-packages/amazon_linux_extras/cli.py", line 452, in main
+    action(args)
+  File "/usr/lib/python2.7/site-packages/amazon_linux_extras/cli.py", line 122, in cmd_list
+    catalog = get_catalog()
+  File "/usr/lib/python2.7/site-packages/amazon_linux_extras/software_catalog.py", line 163, in get_catalog
+    catalog = fetch_new_catalog()
+  File "/usr/lib/python2.7/site-packages/amazon_linux_extras/software_catalog.py", line 134, in fetch_new_catalog
+    url = CATALOG_URL.format(cat_version=version, **yumvars)
+KeyError: u'basearch'
+```
+Fix: 
+
+```
+$ sudo vi usr/lib/python2.7/site-packages/amazon_linux_extras/software_catalog.py
+
+CHANGE:
+-----------
+for name, default in (("awsdomain", "amazonaws.com"), ("awsregion", "default"), ("releasever", "2"), ("basearch", None)):
+
+TO:
+------
+for name, default in (("awsdomain", "amazonaws.com"), ("awsregion", "default"), ("releasever", "2"), ("basearch", "x86_64")):
+![image](https://user-images.githubusercontent.com/95409161/159810640-a94e7ada-c553-4e7c-88e6-ac107aa47d6a.png)
+
+```
+
 ```
 $ sudo vi /usr/bin/yum
 $ sudo vi /usr/libexec/urlgrabber-ext-down
