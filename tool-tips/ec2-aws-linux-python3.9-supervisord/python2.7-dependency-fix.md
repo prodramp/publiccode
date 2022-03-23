@@ -20,14 +20,12 @@ $ sudo vi /usr/bin/yum
 ....
 ````
 
--------
 $ amazon-linux-extras
 ```
 ## Lets fix it #3
 Replace -python to -python2.7 in the last line below (alread changed)
 # sudo vi /usr/bin/amazon-linux-extras
-```
-[ec2-user@ip-172-31-12-6 Python-3.9.10]$ cat /usr/bin/amazon-linux-extras
+
 #!/bin/sh
 # Copyright 2017, 2018 Amazon.com, Inc. or its affiliates.
 
