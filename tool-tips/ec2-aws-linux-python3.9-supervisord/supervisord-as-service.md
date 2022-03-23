@@ -1,41 +1,5 @@
 ## Setting Supervisord as service ##
 
-1. Installation:
-
-$ sudo amazon-linux-extras install epel
-Error:
-```
-Installing epel-release
-Loaded plugins: extras_suggestions, langpacks, priorities, update-motd
-Cleaning repos: amzn2-core amzn2extra-docker amzn2extra-epel amzn2extra-kernel-5.10
-17 metadata files removed
-6 sqlite files removed
-0 metadata files removed
-Loaded plugins: extras_suggestions, langpacks, priorities, update-motd
-amzn2-core                                                                                                                                               | 3.7 kB  00:00:00
-amzn2extra-docker                                                                                                                                        | 3.0 kB  00:00:00
-amzn2extra-epel                                                                                                                                          | 3.0 kB  00:00:00
-amzn2extra-kernel-5.10                                                                                                                                   | 3.0 kB  00:00:00
-  File "/usr/libexec/urlgrabber-ext-down", line 28
-    except OSError, e:
-                  ^
-SyntaxError: invalid syntax
-  File "/usr/libexec/urlgrabber-ext-down", line 28
-    except OSError, e:
-                  ^
-SyntaxError: invalid syntax
-
-
-Exiting on user cancel
-Installation failed. Check that you have permissions to install.
-```
-Fixing Error:
-
-```
-$ sudo vi /usr/libexec/urlgrabber-ext-down
-Change /usr/bin/python to /usr/bin/python2.7
-```
-
 1.  created a file name supervisord in the location below:
 ```
 $ sudo vim /etc/init.d/supervisord
