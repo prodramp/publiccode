@@ -2,6 +2,7 @@
 
 ## Run the following command will give you an error if python2.7 is not in path to launch with python command ##
 ```
+$ yum
 $ amazon-linux-extras
 ```
 ## Lets fix it #3
