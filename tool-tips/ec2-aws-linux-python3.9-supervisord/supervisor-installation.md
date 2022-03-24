@@ -66,6 +66,45 @@ $ sudo vi /usr/bin/supervisorctl
 $ sudo vi /usr/bin/echo_supervisord_conf
 
 Change the top first line from /usr/bin/python to /usr/bin/python2.7
+
+$ cat /usr/bin/supervisorctl
+#!/usr/bin/python2.7. <======================== UPDATE
+
+# EASY-INSTALL-ENTRY-SCRIPT: 'supervisor==3.4.0','console_scripts','supervisorctl'
+__requires__ = 'supervisor==3.4.0'
+import sys
+from pkg_resources import load_entry_point
+
+if __name__ == '__main__':
+    sys.exit(
+        load_entry_point('supervisor==3.4.0', 'console_scripts', 'supervisorctl')()
+    )
+$ cat /usr/bin/supervisord
+#!/usr/bin/python2.7. <======================== UPDATE
+
+# EASY-INSTALL-ENTRY-SCRIPT: 'supervisor==3.4.0','console_scripts','supervisord'
+__requires__ = 'supervisor==3.4.0'
+import sys
+from pkg_resources import load_entry_point
+
+if __name__ == '__main__':
+    sys.exit(
+        load_entry_point('supervisor==3.4.0', 'console_scripts', 'supervisord')()
+    )
+    
+$ cat /usr/bin/echo_supervisord_conf
+#!/usr/bin/python2.7. <======================== UPDATE
+
+# EASY-INSTALL-ENTRY-SCRIPT: 'supervisor==3.4.0','console_scripts','echo_supervisord_conf'
+__requires__ = 'supervisor==3.4.0'
+import sys
+from pkg_resources import load_entry_point
+
+if __name__ == '__main__':
+    sys.exit(
+        load_entry_point('supervisor==3.4.0', 'console_scripts', 'echo_supervisord_conf')()
+    )
+    
 ```
 
 4. Now try again
