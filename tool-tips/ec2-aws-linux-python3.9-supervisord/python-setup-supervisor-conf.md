@@ -3,6 +3,10 @@
 1. Please edit the supervisord.conf located as /etc/supervisord.conf
 
 Note: In some cases you create you own conf file and then merge it with the existing one. 
+```
+$ echo_supervisord_conf > supervisord.conf
+
+```
 
 2. Please add the following code into the supervisord.conf file and change the command, directory, user and logfile setting based on your application requirements
   
