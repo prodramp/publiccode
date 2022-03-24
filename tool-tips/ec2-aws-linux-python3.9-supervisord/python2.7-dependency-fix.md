@@ -12,12 +12,15 @@ $ yum
 SyntaxError: invalid syntax
 ````
 Fix:
-Note: Change the first line from /usr/bin/python to /usr/bin/python2.7
+
+- Note: Change the first line from /usr/bin/python to /usr/bin/python2.7
+
 ```
 $ sudo vi /usr/bin/yum
 
 #!/usr/bin/python2.7
-....
+Note: you just need to make sure whereever python is set, change it to python2.7
+
 ````
 
 $ amazon-linux-extras
@@ -58,7 +61,6 @@ fi
 exec env PYTHONIOENCODING=UTF-8 ${PYTHON:-python2.7} -m amazon_linux_extras "$@"
 ```
 
-
 Error:
 
 ```
@@ -82,6 +84,8 @@ KeyError: u'basearch'
 ```
 Fix: 
 
+- Fix the file /usr/lib/python2.7/site-packages/amazon_linux_extras/software_catalog.py as below:
+
 ```
 $ sudo vi usr/lib/python2.7/site-packages/amazon_linux_extras/software_catalog.py
 
@@ -95,77 +99,18 @@ for name, default in (("awsdomain", "amazonaws.com"), ("awsregion", "default"), 
 ![image](https://user-images.githubusercontent.com/95409161/159810640-a94e7ada-c553-4e7c-88e6-ac107aa47d6a.png)
 
 ```
+Now run yum app and check there are no longer any error.
+
+After that run 
 
 ```
 $ sudo vi /usr/bin/yum
 $ sudo vi /usr/libexec/urlgrabber-ext-down
 
->>> change both of above file #! /usr/bin/python >>>>> #! /usr/bin/python2
+>>> change both of above file #! /usr/bin/python >>>>> #! /usr/bin/python2.7
 
 Note: python3 will not work
 ```
 
 Change -python to -python2.7
 
-```
-declare -x CATALOGURL AWSDOMAIN AWSREGION RELEASEVER BASEARCH YUMCONFIG_FILE_NAME
-declare -x URL_FORMAT USE_MIRRORLIST SRC_SUFFIX DEBUGINFO_SUFFIX
-for config_file_location in /etc /usr/local/etc ${HOME:+"${HOME}/.config/amazon-linux"}; do
-	test -r "${config_file_location}/amazon-linux-extras.conf" &&
-		. "${config_file_location}/amazon-linux-extras.conf"
-done
-
-# Avoid encoding errors because default is ASCII.
-if test "$ENVROOT"; then
-	PATH=$ENVROOT:$PATH
-fi
-exec env PYTHONIOENCODING=UTF-8 ${PYTHON:-python2.7} -m amazon_linux_extras "$@"
-```
-
-3. 
-
-```
-    for name, default in (("awsproto", "http"), ("amazonlinux", "amazonlinux"), ("awsdomain", "amazonaws.com"), ("awsregion", "default"), ("releasever", "2"), ("basearch", "x86_64")):
-```
-
-```
-#!/usr/bin/python2.7
-
-$ sudo vi /usr/libexec/urlgrabber-ext-down
-#! /usr/bin/python2.7
-
-[ec2-user@ip-172-31-15-214 ~]$ cat /usr/bin/supervisorctl
-#!/usr/bin/python2.7
-# EASY-INSTALL-ENTRY-SCRIPT: 'supervisor==3.4.0','console_scripts','supervisorctl'
-__requires__ = 'supervisor==3.4.0'
-import sys
-from pkg_resources import load_entry_point
-
-if __name__ == '__main__':
-    sys.exit(
-        load_entry_point('supervisor==3.4.0', 'console_scripts', 'supervisorctl')()
-    )
-[ec2-user@ip-172-31-15-214 ~]$ cat /usr/bin/supervisord
-#!/usr/bin/python2.7
-# EASY-INSTALL-ENTRY-SCRIPT: 'supervisor==3.4.0','console_scripts','supervisord'
-__requires__ = 'supervisor==3.4.0'
-import sys
-from pkg_resources import load_entry_point
-
-if __name__ == '__main__':
-    sys.exit(
-        load_entry_point('supervisor==3.4.0', 'console_scripts', 'supervisord')()
-    )
-[ec2-user@ip-172-31-15-214 supervisorconf]$ cat /usr/bin/echo_supervisord_conf
-#!/usr/bin/python2.7
-# EASY-INSTALL-ENTRY-SCRIPT: 'supervisor==3.4.0','console_scripts','echo_supervisord_conf'
-__requires__ = 'supervisor==3.4.0'
-import sys
-from pkg_resources import load_entry_point
-
-if __name__ == '__main__':
-    sys.exit(
-        load_entry_point('supervisor==3.4.0', 'console_scripts', 'echo_supervisord_conf')()
-    )
-
-```
