@@ -63,6 +63,8 @@ Fix: Edit both the files below to use python2.7 instead of python
 ```
 $ sudo vi /usr/bin/supervisord
 $ sudo vi /usr/bin/supervisorctl
+$ sudo vi /usr/bin/echo_supervisord_conf
+
 Change the top first line from /usr/bin/python to /usr/bin/python2.7
 ```
 
@@ -78,3 +80,12 @@ You will get as below:
 root     16047     1  0 23:11 ?        00:00:00 /usr/bin/python2.7 /bin/supervisord
 ec2-user 16049  3236  0 23:11 pts/0    00:00:00 grep --color=auto python
 ```
+Other ways to check supervisord:
+
+- $ sudo supervisorctl status
+- $ sudo supervisorctl show all
+- $ sudo supervisorctl show <process-name>
+- $ sudo supervisorctl reread (run this when you have made changes in the supervisord.conf)
+- $ sudo supervisorctl update
+  
+  
