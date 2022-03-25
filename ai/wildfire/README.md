@@ -19,3 +19,9 @@ Wildfire and Smoke Images:
   - API
     - https://rapidapi.com/meteostat/api/meteostat/
   
+
+## Genearing your own Wild Fire Dataset ##
+1. Visit  https://firms.modaps.eosdis.nasa.gov/download/ 
+  - MODIS - https://firms.modaps.eosdis.nasa.gov/country/
+  - VIIRS https://firms.modaps.eosdis.nasa.gov/country/ 
+2.  
