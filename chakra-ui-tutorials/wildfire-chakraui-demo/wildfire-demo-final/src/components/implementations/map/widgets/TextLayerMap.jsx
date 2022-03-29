@@ -42,6 +42,7 @@ export default function TextLayerMap({
     <DeckGL
       layers={[textLayer]}
       initialViewState={INITIAL_VIEW_STATE}
+      style={{position: 'relative'}}
       controller={{dragRotate: false}}
     >
       <StaticMap reuseMaps mapStyle={mapStyle} preventStyleDiffing={true} />

@@ -110,6 +110,7 @@ export default function HexMap({
       effects={[lightingEffect]}
       initialViewState={INITIAL_VIEW_STATE}
       controller={true}
+      style={{position: 'relative'}}
       getTooltip={getTooltip}
     >
       <StaticMap reuseMaps mapStyle={mapStyle} preventStyleDiffing={true} />

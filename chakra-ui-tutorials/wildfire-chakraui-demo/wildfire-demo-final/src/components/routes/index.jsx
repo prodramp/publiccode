@@ -8,11 +8,13 @@ import SuspenseLoader from '../../utils/SuspenseLoader';
 const IndexHome = React.lazy( () => import('../pages/IndexHome'));
 const DataHome = React.lazy( () => import('../pages/data/DataHome'));
 const MapHome = React.lazy( () => import('../pages/map/MapHome'));
+const WildfireMapHome = React.lazy( () => import('../pages/wildfire/WildfireMapHome'));
 
 export const routes = [
     {path: '/index', exact: true, name: 'Home', component: IndexHome},
     {path: '/dataHome', exact: true, name: 'Home', component: DataHome},
-    {path: '/mapHome', exact: true, name: 'Home', component: MapHome}
+    {path: '/mapHome', exact: true, name: 'Home', component: MapHome},
+    {path: '/wildfireMap', exact: true, name: 'Home', component: WildfireMapHome}
 ]
 
 export default () => {

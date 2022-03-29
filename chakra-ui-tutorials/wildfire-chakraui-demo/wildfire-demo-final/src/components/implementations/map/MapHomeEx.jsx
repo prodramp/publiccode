@@ -1,6 +1,6 @@
 import React from 'react';
 import {
-    Box, VStack, Text,
+    Box, VStack, Text, Button, ButtonGroup,
     Link,
     Code,
     Grid,
@@ -18,7 +18,8 @@ import TextHexScatterplotMap from './widgets/TextHexScatterplot';
 class MapHomeEx extends React.Component {
     state = {
         arcPoints: [],
-        hexPoints: []
+        hexPoints: [],
+        mapChoice: 'Scatterplot'
     }
 
     componentDidMount = () => {
@@ -43,20 +44,51 @@ class MapHomeEx extends React.Component {
     render() {
         return(
             <VStack w="100%">
-                <Box w="100%" textAlign="center" fontSize="xl">
-                    <Text fontSize={'5xl'}>
-                        I am from Map Home
-                    </Text>
+                <Box w="100%" style={{minHeight:'60px', maxHeight:'60px'}} bg={'blue.100'}>
+                    <ButtonGroup padding={'1'}>
+                        <Button onClick={() => this.setState({mapChoice :'ReactMapGLView'})}>
+                            ReactMapGLView
+                        </Button>
+                        <Button onClick={() => this.setState({mapChoice :'DeckGlMap'})}>
+                            DeckGlMap
+                        </Button>
+                        <Button onClick={() => this.setState({mapChoice :'Scatterplot'})}>
+                            Scatterplot
+                        </Button>
+                        <Button onClick={() => this.setState({mapChoice :'ArchLayer'})}>
+                            ArchLayer Map
+                        </Button>
+                        <Button onClick={() => this.setState({mapChoice :'TextScatterPlot'})}>
+                            TextScatterPlot 
+                        </Button>
+                        <Button onClick={() => this.setState({mapChoice :'TextLayer'})}>
+                            TextLayer 
+                        </Button>
+                        <Button onClick={() => this.setState({mapChoice :'Hexmap'})}>
+                            Hexmap 
+                        </Button>
+                        <Button onClick={() => this.setState({mapChoice :'TextHexmap'})}>
+                            TextHexmap 
+                        </Button>
+                    </ButtonGroup>
                 </Box>
-                <Box w="100vw" h="100vh">
-                    {/* <ReactMapGLView /> */}
-                    {/* <DeckGlMap /> */}
-                    {/* <ScatterplotMap /> */}
-                    {/* <ArcLayerMap data={this.state.arcPoints} /> */}
-                    {/* <TextLayerMap /> */}
-                    {/* <TextScatterplotMap /> */}
-                    {/* <HexMap data={this.state.hexPoints} /> */}
-                    <TextHexScatterplotMap />
+                <Box w="100vw" h={'calc(100vh - 60px)'}>
+                    {this.state.mapChoice === 'ReactMapGLView'
+                    ?<ReactMapGLView />:null}
+                    {this.state.mapChoice === 'DeckGlMap'
+                    ?<DeckGlMap />:null}
+                    {this.state.mapChoice === 'Scatterplot'
+                    ?<ScatterplotMap />:null}
+                    {this.state.mapChoice === 'TextLayer'
+                    ?<TextLayerMap />:null}
+                    {this.state.mapChoice === 'TextScatterPlot'
+                    ?<TextScatterplotMap />:null}
+                    {this.state.mapChoice === 'ArchLayer'
+                    ?<ArcLayerMap data={this.state.arcPoints} /> :null}
+                    {this.state.mapChoice === 'Hexmap'
+                    ?<HexMap data={this.state.hexPoints} /> :null}
+                    {this.state.mapChoice === 'TextHexmap'
+                    ?<TextHexScatterplotMap /> :null}
                 </Box>
             </VStack>
         )

@@ -46,6 +46,7 @@ export default function ScatterplotMap({
     <DeckGL 
         layers={layers} 
         initialViewState={INITIAL_VIEW_STATE} 
+        style={{position: 'relative'}}
         controller={true}>
         <StaticMap 
             reuseMaps 

@@ -44,6 +44,7 @@ export default function DeckGlMap({
         <DeckGL 
             initialViewState={INITIAL_VIEW_STATE} 
             controller={true} 
+            style={{position: 'relative'}}
             layers={layers}>
             <StaticMap 
                 reuseMaps 

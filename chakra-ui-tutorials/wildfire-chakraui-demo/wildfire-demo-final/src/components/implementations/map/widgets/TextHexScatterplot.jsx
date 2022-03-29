@@ -93,6 +93,7 @@ export default function TextHexScatterplotMap({
     <DeckGL 
         layers={layers} 
         initialViewState={INITIAL_VIEW_STATE} 
+        style={{position: 'relative'}}
         controller={true}>
         <StaticMap 
             reuseMaps 

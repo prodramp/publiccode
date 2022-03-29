@@ -21,6 +21,7 @@ export default function ReactMapGLView() {
       <CSSReset />
         <ReactMapGl
             mapboxApiAccessToken={MAP_BOX_TOKEN}
+            style={{position: 'relative'}}
             mapStyle={'mapbox://styles/mapbox/streets-v9'} //+ MAPBOX_MAP_STYLES.STREET}
             height="100vh"
             width="100vw"

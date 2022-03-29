@@ -107,6 +107,7 @@ export default function ArcLayerMap({data, strokeWidth = 1, mapStyle = MAP_STYLE
       layers={layers}
       initialViewState={INITIAL_VIEW_STATE}
       controller={true}
+      style={{position: 'relative'}}
       getTooltip={getTooltip}
     >
       <StaticMap    
