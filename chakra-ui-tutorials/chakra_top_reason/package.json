@@ -1,0 +1,40 @@
+{
+  "name": "chakra_top_reason",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "@chakra-ui/react": "^1.8.7",
+    "@emotion/react": "^11.8.2",
+    "@emotion/styled": "^11.8.1",
+    "@testing-library/jest-dom": "^5.16.3",
+    "@testing-library/react": "^10.4.9",
+    "@testing-library/user-event": "^12.8.3",
+    "framer-motion": "^4.1.17",
+    "react": "^18.0.0",
+    "react-dom": "^18.0.0",
+    "react-icons": "^3.11.0",
+    "react-scripts": "5.0.0",
+    "web-vitals": "^0.2.4"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
+  },
+  "eslintConfig": {
+    "extends": "react-app"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  }
+}
